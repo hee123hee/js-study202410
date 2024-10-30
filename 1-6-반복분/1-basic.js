@@ -24,6 +24,8 @@ let total = 0;
 for (let n = 1; n <= 10; n++) {
   total += n;
 }
+
+
 console.log(`1~10까지의 총합: ${total}`);
 
 
