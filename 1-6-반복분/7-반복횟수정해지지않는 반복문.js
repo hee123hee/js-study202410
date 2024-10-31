@@ -41,3 +41,8 @@ while (num !== 7) {
   count++;
 }
 console.log(`반복문 종료! ${count}번만에 7 생성 num = ${num}`);
+
+let num = 0;
+num = Math.floor(Math.random() * 100) + 1;
+
+console.log(`다운 업 ??`)
