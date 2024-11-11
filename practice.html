@@ -6,31 +6,22 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="wrap">
-      <ul id="list1">
-        <li>리스트1</li>
-        <li>리스트2</li>
-        <li>리스트3</li>
-        <li>리스트4</li>
-        <li>리스트5</li>
-        <li>리스트6</li>
-        <li>리스트7</li>
+    <div id="clock">현재 시간:</div>
 
-        <script>
-          // 홀수번째 요소만 선택 후 배경색 옐로우
-          const $listItems=document.querySelectorAll('#list1 li')
-          for ( let i = 0; i < $listItems.length; i++){
-            if ( i % 2 === 0 ){
-              $listItems[i].style.background='yellow';
-            }
-          }
-          const $listItems=[document.querySelectorAll(#list1 li:nth-child)]
+    <script>
 
+      function showTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
 
+        console.log(`현재 시간: ${timeString}`);
 
+        document.getElementById('clock').textContent = `현재 시간: ${timeString}`;
 
-        </script>
-      </ul>
-    </div>
+      }
+      // 화면에 시간 표시
+
+      setInterval(showTime,1000);
+    </script>
   </body>
 </html>
