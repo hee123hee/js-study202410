@@ -7,29 +7,23 @@
 </head>
 <body>
   
+  <ul id="fruits">
+    <li class="f-item">사과</li>
+    <li class="f-item">바나나</li>
+    <li class="f-item">포도</li>
+    <li class="f-item">복숭아</li>
+  </ul>
 
-<ul id="fruits">
-<li class="f-item">사과</li>
-<li class="f-item">바나나</li>
-<li class="f-item">포도</li>
-<li class="f-item">복숭아</li>
+  <script>
+    // console.log(document.body);
+    document.body.classList.add('my-body');
 
-</ul>
-
-<script>
-  console.log(document.body);
-  document.body.classList.add('my-body');
-
-  console.log(document.body.children[0]);
-  document.body.children[0].id='apple';
-  document.body.children[0].children[1].textContent='뽀노노';
-  document.body.children[0].children[1].style.color='red';
-  document.body.style.background='lightblueqkrddd
-  
-</script>
-
-
+    console.log(document.body.children[0]);
+    document.body.children[0].id = 'apple';
+    document.body.children[0].children[1].textContent = '뽀노노';
+    document.body.children[0].children[0].style.color = 'red';
+    document.body.style.background = 'gray';
+  </script>
 
 </body>
 </html>
-

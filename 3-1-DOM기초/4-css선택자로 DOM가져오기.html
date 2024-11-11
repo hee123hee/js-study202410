@@ -25,15 +25,13 @@
     // querySelector는 해당 선택자에 일치하는 가장 처음 발견된
     // 요소 하나를 가져옴
 
-    // 유사 배열: 구조는 배열과 유사하나 실제로는 객체에 가까움 
+    // 유사 배열 : 구조는 배열과 유사하나 실제로는 객체에 가까움
     // 이 유사 배열에 유용한 배열 메서드를 사용하려면
     // 유사 배열을 실제 배열로 변환해서 사용해야 함
-    const arrylike = document.querySelectorAll('.fruit');
-    const realArray = [ ...arraylike];
+    const arraylike = document.querySelectorAll('.fruit');
+    const realArray = [...arraylike];
     
-    console.log(x);
-
-    x.forEach(li => {
+    realArray.forEach(li => {
       li.style.fontStyle = 'italic';
       li.style.border = '1px dashed orange';
     });
