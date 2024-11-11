@@ -91,25 +91,12 @@
       // 다음 버튼 누르면 이미지가 다음 이미지로 조작되어야 한다.
       // 다음 이미지로 조작되려면 뭐해야하지? => 배열의 1번인덱스에 주소로
       // img태그의 src가 수정되어야 한다.
-
-      // currentIndex = rotateIndex(currentIndex);
-      currentIndex = (currentIndex + 1) % images.length;
+      currentIndex = rotateIndex(currentIndex);
       $image.setAttribute('src', images[currentIndex]);
     });
     // 이전 버튼 클릭 이벤트
     $prev.addEventListener('click', () => {
       console.log('이전 버튼 클릭!');
-
-      // 0 2 1 0 2 1 0
-      // currentIndex--;
-      // 인덱스 보정
-      // if (currentIndex < 0) {
-      //   currentIndex = images.length - 1;
-      // }
-
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-
-      $image.setAttribute('src', images[currentIndex]);
     });
 
   </script>
