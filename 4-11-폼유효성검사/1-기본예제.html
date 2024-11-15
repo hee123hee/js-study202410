@@ -94,16 +94,105 @@
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 이메일 형식 패턴
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // 영문, 숫자, 특수문자 포함 8자리 이상
 
+    // 이메일, 패스워드가 잘 작성되었는가?
+    let emailIsValid = false;
+    let passwordIsValid = false;
 
     // 디바운스 함수
     function debounce(func, delay) {
       let timeout;
       return function (...args) {
         clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), delay);
+        timeout = setTimeout(() => func(...args), delay);
       };
     }
 
+    // 이메일의 유효성을 검사하는 핸들러
+    function validateEmailHandler(e) {
+      // 사용자가 입력한 이메일 값
+      const inputEmailValue = e.target.value;
+    
+      let errorText;
+      if (inputEmailValue.length === 0) {
+        emailIsValid = false;
+        errorText = '이메일은 필수 입력값입니다.';
+      } else if (!emailPattern.test(inputEmailValue)) {
+        emailIsValid = false;
+        errorText = '이메일 똑바로 써라!';
+      } else {
+        emailIsValid = true;
+        errorText = '아주 잘하셨습니다!';
+      }
+
+      if (!emailIsValid) {
+        $emailError.style.color = 'red';
+        $emailError.style.display = 'block';
+        $emailError.textContent = errorText;
+      } else {
+        $emailError.style.color = 'green';
+        $emailError.style.display = 'block';
+        $emailError.textContent = errorText;
+      }
+      updateSubmitButtonState();
+    }
+
+    // 패스워드 검증 핸들러
+    function validatePasswordHandler(e) {
+      // 사용자가 입력한 패스워드 값
+      const inputPasswordValue = e.target.value;
+    
+      let errorText;
+      if (inputPasswordValue.length === 0) {
+        passwordIsValid = false;
+        errorText = '비밀번호는 필수 입력값입니다.';
+      } else if (!passwordPattern.test(inputPasswordValue)) {
+        passwordIsValid = false;
+        errorText = '비밀번호는 영문,숫자,특수문자 포함 8자 이상!';
+      } else {
+        passwordIsValid = true;
+        errorText = '아주 잘하셨습니다!';
+      }
+
+      if (!passwordIsValid) {
+        $passwordError.style.color = 'red';
+        $passwordError.style.display = 'block';
+        $passwordError.textContent = errorText;
+      } else {
+        $passwordError.style.color = 'green';
+        $passwordError.style.display = 'block';
+        $passwordError.textContent = errorText;
+      }
+      updateSubmitButtonState();
+    }
+
+    // 버튼 상태를 업데이트하는 함수
+    function updateSubmitButtonState() {
+      // 이메일, 패스워드를 둘 다 정확히 입력했을 때 버튼 활성화
+      if (emailIsValid && passwordIsValid) {
+        $submitBtn.disabled = false;
+        $submitBtn.classList.add('active');
+      } else {
+        $submitBtn.disabled = true;
+        $submitBtn.classList.remove('active');
+      }
+    } 
+
+    // 이메일 패턴 검사
+    $emailInput.addEventListener('input', validateEmailHandler);
+
+    // 패스워드 패턴 검사
+    $passwordInput.addEventListener('input', validatePasswordHandler);
+  
+    // 폼을 전송하는 이벤트
+    $submitBtn.addEventListener('click', e => {
+      if (!emailIsValid || !passwordIsValid) {
+        e.preventDefault();
+        alert('입력값을 확인하세요.');
+      } else {
+        alert('폼이 성공적으로 제출됨!');
+        $form.submit();
+      }
+    });
   </script>
 
 </body>
