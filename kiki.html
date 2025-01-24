@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERD Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <h1>ERD Diagram</h1>
+    <div class="mermaid">
+        erDiagram
+            Board {
+                Long id
+                String title
+                String content
+                String imageUrl
+                int likeCount
+                LocalDateTime createdAt
+                LocalDateTime updatedAt
+            }
+            BoardImage {
+                Long id
+                Long boardId
+                String imageUrl
+                int imageOrder
+                LocalDateTime createdAt
+            }
+            Board ||--o{ BoardImage : has
+            User ||--o{ Board : writes
+    </div>
+</body>
+</html>

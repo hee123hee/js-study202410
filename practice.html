@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="clock">현재 시간:</div>
+
+    <script>
+
+      function showTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+
+        console.log(`현재 시간: ${timeString}`);
+
+        document.getElementById('clock').textContent = `현재 시간: ${timeString}`;
+
+      }
+      // 화면에 시간 표시
+
+      setInterval(showTime,1000);
+    </script>
+  </body>
+</html>
