@@ -28,6 +28,7 @@ const $logEntries = document.querySelector('.log-entries');
 //=========== 함수 정의 ===========//
 // 사칙연산 분기 처리 함수
 function operateNumber({ type, first, second }) {
+
   let result; // 연산 결과
   switch (type) {
     case ADD:
@@ -43,6 +44,7 @@ function operateNumber({ type, first, second }) {
       result = Math.floor(first / second);
       break;
   }
+
   return result;
 }
 

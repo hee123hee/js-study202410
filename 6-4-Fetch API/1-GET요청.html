@@ -64,16 +64,41 @@
     <div id="posts"></div>
     
   <script>
-    const requestUrl = `https://jsonplaceholder.typicode.com/posts`
-    const $fetchBtn = document.getElementById('fetchPosts');
-    $fetchBtn.addEventListener('click', e=>{
-      // 서버에 요청 보내기
-      fetch(requestUrl)
-      .then(res =>res.json()) // 첫번째 프로미스체인에서 응답정보가 통째로옴
-      .then(result => {
-        displayPosts(result);
+
+    // 게시물을 화면에 표시하는 함수
+    function displayPosts(posts) {
+      const postsContainer = document.getElementById("posts");
+      postsContainer.innerHTML = ""; // 기존 콘텐츠 초기화
+
+      posts.forEach(post => {
+        const postElement = document.createElement("div");
+        postElement.classList.add("post");
+
+        postElement.innerHTML = `
+          <div class="post-title">${post.title}</div>
+          <div class="post-body">${post.body}</div>
+        `;
+
+        postsContainer.append(postElement);
       });
-      });
+    }
+
+
+
+    const requestUrl = `https://jsonplaceholder.typicode.com/posts`;
+  const $fetchBtn = document.getElementById('fetchPosts');
+  $fetchBtn.addEventListener('click', e =>{
+    // 서버에 요청 보내기
+    fetch(requestUrl)
+    .then(res=> res.json()) // 첫번째 프로미스체인에서 응답정보가 통째로옴
+            .then(result => {
+            displayPosts(result);
+            });
+
+  });
+
+
+
   </script>
 
    

@@ -6,7 +6,8 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="fetchData">회원정보 불러오기</button>
+  <button id="fetchData">회원정보 불러오기</button>
+
 
     <script>
       const $fetchBtn = document.getElementById("fetchData");
@@ -25,31 +26,32 @@
       // }
 
       
-      
-      /*
-      // async, await을 통한 서버통신
-      async function fetchGetasync() {
-        //promise가 리턴되는 함수 앞에 await을 붙임
-        //그러면 then처리를 대신해줌.
+/*
+      // async, await 을 통한 서버통신
+      async function fetchGetAsync(){
+        // promise가 리턴되는 함 수 앞에 await을 붙임
+        // 그러면 then처리를 대신 해줌.
         const res = await fetch(url);
         console.log(res);
 
         const result = await res.json();
+        console.log(result);
       }
 */
+
       $fetchBtn.addEventListener("click", (e) => {
         fetchGetAsync();
       });
 
-      // async, await을 통한 서버통신
-      const fetchGetasync = async () => {
-        //promise가 리턴되는 함수 앞에 await을 붙임
-        //그러면 then처리를 대신해줌.
-        const res = await fetch(url);
-        console.log(res);
-
-        const result = await res.json();
-      }
+      // // async, await을 통한 서버통신
+      // const fetchGetasync = async () => {
+      //   //promise가 리턴되는 함수 앞에 await을 붙임
+      //   //그러면 then처리를 대신해줌.
+      //   const res = await fetch(url);
+      //   console.log(res);
+      //
+      //   const result = await res.json();
+      // }
 
     </script>
   </body>
