@@ -6,4 +6,5 @@ empty = a;
 a = b;
 b = empty;
 
+
 console.log(`a: ${a}, b: ${b}`);
