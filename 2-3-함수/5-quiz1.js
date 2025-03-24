@@ -1,14 +1,14 @@
 
-function calcDivisor(n) {
-    let divisor = []; // 약수를 저장할 배열
-    for (let i = 1; i <= n; i++) { // 1부터 n까지
-      if (n % i === 0) { // 약수 판별 조건
-        divisor.push(i); // 약수라면 배열에 저장
-      }
+function calcDivisor(n){
+    let divisor = []; //약수를 저장할 배열
+    for (let i=1; i <= n; i++) { // 1부터 n까지
+        if(n % i === 0) { // 약수 판별 조건
+            divisor.push(i); // 약수라면 배열에 저장
+        }
     }
     console.log(divisor);
     return divisor.length;
-  }
+}
   
   /* 
   Q. n의 약수의 개수를 구하기

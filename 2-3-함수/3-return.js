@@ -30,20 +30,16 @@ function add(n1, n2) {
   
   
   //   3, undefined
-         
-  // 리턴이 없는 함수는 변수에 저장하지도 말고, 
-  // 다른 함수의 매개값으로도 쓰지말 것!
-  multiply(add(1, 2), multiply(5, 4));
-  
-  let arr = [1, 2, 3, 4];
-  
-  let xx = arr.push(5, 6, 10, 20);
-  console.log(`xx : ${xx}`);
-  
-  
-  let yyy = console.log('hello');
-  console.log(`yyy: ${yyy}`);
-  
+
+// 리턴이 없는 함수는 변수에 저장하지도 말고,
+// 다른 함수의매개값으로도 쓰지말 것!
+multiply(add(1,2), multiply(5,4));
+
+let arr = [1,2,3,4];
+let xx = arr.push(5,6,10,20);
+console.log(`xx: ${xx}`);
+
+console.log(`hello`);
   
   
   

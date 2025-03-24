@@ -2,38 +2,38 @@
 // 함수는 컴팩트할수록 좋음.
 // 하나의 함수에는 하나의 동작만 처리하는 것이 좋다.
 function judgeBmi(bmi) {
-    // bmi를 가지고 체중상태를 출력하는 동작
-    // 판별 분기
-    if (bmi > 25) {
-      console.log('당신은 과체중입니다.');
-    } else if (bmi < 18.5) {
-      console.log('당신은 저체중입니다.');
-    } else {
-      console.log('당신은 정상체중입니다.');
-    }
+  // bmi를 가지고 체중상태를 출력하는 동작
+  // 판별 분기
+  if(bmi > 25) {
+    console.log('당신은 과체중입니다.');
+  } else if( bmi < 18.5) {
+    console.log('당신은 저체중 입니다.');
+  } else {
+    console.log('당신은 정상체중 입니다.')
   }
-  
-  function calcBMI(cm, kg) {
-    // bmi 계산하는 동작
-    let m = cm / 100;
-    let bmi = kg / (m * m);
-  
-    // bmi 판별 출력
-    judgeBmi(bmi);
-    
-    return bmi;
-  }
-  
+}
+
+function calcBMI(cm, kg) {
+  // bmi 계산하는 동작
+  let m = cm /100;
+  let bmi = kg / (m * m);
+
+  // bmi 판별 출력
+  judgeBmi(bmi);
+  return bmi;
+}
+
   // 반올림 처리
-  /*
-    Math.round(3.78) -> 4;
-  
-    3.3897 -> 3.4
-  
-    3.3897 * 10 =>  33.897  -> round반올림 -> 34 / 10 -> 3.4
-  */
-  function round(n, postion) {
-    return Math.round(n * 10 ** postion) / 10 ** postion;
+/*
+  Math.round(3.78); ->4
+
+  3.3897 -> 3.4
+  3.3897 * 100 => 338.97 -> round반올림 -> 339 / 100 -> 3.39
+ */
+
+
+  function round(n, position) {
+    return Math.round(n * 10 ** position) / 10 ** position;
   }
   
   
@@ -54,6 +54,7 @@ function judgeBmi(bmi) {
   let h = 178.4,
     w = 78.2;
   let myBmi = calcBMI(h, w);
+console.log(myBmi)
   
   
   console.log(
