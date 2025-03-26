@@ -37,39 +37,41 @@ const userList = [
     },
   ];
   
-  // findIndex() : 해당 조건에 맞는 처음 발견한 객체데이터의 인덱스를 찾는 것
-  // ex) 이름이 주차왕인 객체의 인덱스는 몇번인가?
-  // [1,2,3,4] || ['a', 'b', 'c']
+// findIndex() : 해당 조건에 맞는 처음 발견한 객체데이터의 인덱스를 찾는 것
+// ex. 이름이 주차왕인 객체의 인덱스는 몇번인가 ?
+// [1,2,3,4] || ['a', 'b','c']
+
+// const idx1 = ['a','b','c'].indexOf('b');
+// console.log(`idex1: ${idx1}`);
+
+// function findIndex(callbackFn){
+//   for(let i=0; i < userList.length; i++){
+//     if(callbackFn(userList[i])){
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+
+const idx2 = userList.findIndex((user)=>user.job ==='과일');
+console.log(`idx2 : ${idx2}`);
+
+
   
-  // const idx1 = ['a', 'b', 'c'].indexOf('d');
-  // console.log(`idx1: ${idx1}`);
-  
-  function findIndex(callbackFn) {
-    for (let i = 0; i < userList.length; i++) {
-      if (callbackFn(userList[i])) {
-        return i;
-      }
-    }
-    return -1;
-  }
-  
-  const idx2 = userList.findIndex((user) => user.job === '과일');
-  console.log(`idx2: ${idx2}`);
-  
-  // find(): 배열에서 조건에 일치하는 처음 발견한 객체를 리턴
-  // 중복이 없는 데이터로 찾아야 정확하게 찾아냄
-  
-  function myFind(callbackFn) {
-    const index = findIndex(callbackFn);
-    return index !== -1 ? userList[index] : null;
-  }
-  
-  // 이름이 빠나나인 객체를 찾아주세요
-  const foundUser = userList.find(user => user.userName === '빠나나');
-  console.log(foundUser);
-  
-  console.log('====================');
-  
+// find() : 배열에서 조건에 일치하는 처음 발견한 객체를 리턴
+// 중복이 없는 데이터로 찾아야 정확하게 찾아냄
+
+function myFind(callbackFn) {
+const index = findIndex(callbackFn);
+return index !== -1 ? userList[index] : null;
+}
+
+
+// 이름이 빠나나인 객체를 찾아주세요.
+const foundUser = myFind(user=>user.userName === '빠나나');
+console.log(foundUser.job);
+
+
   // some() : 배열에서 특정 조건에 맞는 데이터가 하나라도 있는지 여부
   // every() : 배열에서 모든 데이터가 특정 조건에 맞는지 체크
   
